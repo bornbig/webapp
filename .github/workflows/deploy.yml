@@ -21,7 +21,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm ci
     - run: CI= npm run build
     
     - name: Deploy to Skynet
@@ -29,3 +28,4 @@ jobs:
       with:
         upload-dir: build
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        registry-seed: ${{ github.event_name == ‘push’ && github.ref == ‘refs/heads/main’ && secrets.REGISTRY_SEED || ‘’ }}
