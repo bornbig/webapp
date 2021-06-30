@@ -29,8 +29,8 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     
-    — name: Deploy to Skynet
+    - name: Deploy to Skynet
       uses: kwypchlo/deploy-to-skynet-action@main
       with:
-      upload-dir: build
-      github-token: ${{ secrets.GITHUB_TOKEN }}
+        upload-dir: public
+        github-token: ${{ secrets.GITHUB_TOKEN }}
