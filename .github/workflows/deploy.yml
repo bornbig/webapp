@@ -15,8 +15,8 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 14.x
-    - run: npm install
-    - run: CI= npm run build
+    - run: yarn
+    - run: CI= yarn run build
 
     - name: Deploy to Skynet
       uses: kwypchlo/deploy-to-skynet-action@v1.2.0
